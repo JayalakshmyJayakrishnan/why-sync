@@ -6,7 +6,7 @@
     <title>Why Sync - Chat UI</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts for Inter and Pacifico (for the title/logo) -->
+    <!-- Google Fonts for Inter and Pacifico (for the title logo) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Pacifico&display=swap" rel="stylesheet">
@@ -19,11 +19,11 @@
         }
 
         body {
-            background-color: #f7fafc; /* light off-white */
+            background-color: #f7fafc; /* A very light grey/off-white background */
             font-family: 'Inter', sans-serif;
         }
 
-        /* Orbiting typing indicator */
+        /* Custom CSS for the orbiting typing indicator */
         @keyframes orbit {
             from {
                 transform: rotate(0deg) translateX(5px) rotate(0deg);
@@ -48,7 +48,6 @@
         .typing-indicator .dot:nth-child(3) {
             animation-delay: 0.2s;
         }
-
         .typing-indicator .dot-pulse {
             width: 10px;
             height: 10px;
@@ -58,24 +57,25 @@
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.7; }
-            50% { transform: scale(1.2); opacity: 1; }
-        }
-
-        /* Orbiting dot origin fix */
-        .orbiting-dot {
-            transform-origin: center;
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
         }
     </style>
 </head>
 <body class="flex items-center justify-center min-h-screen p-4 sm:p-6 bg-slate-50">
-    <!-- Main container -->
+    <!-- Main container for the mobile chat UI -->
     <div class="relative w-full max-w-sm sm:max-w-md bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col h-[650px] border border-gray-100">
 
-        <!-- Header with Bond Meter -->
-        <div class="flex flex-col p-5 bg-gradient-to-r from-pastel-lilac to-pastel-pink rounded-t-3xl shadow-inner">
+        <!-- Header section with Bond Meter -->
+        <div class="flex flex-col p-5 bg-gradient-to-r from-lilac to-pastel-pink rounded-t-3xl shadow-inner">
             <div class="flex items-center justify-between">
-                <!-- Title -->
+                <!-- Why Sync Logo/Title -->
                 <div class="flex items-center space-x-2">
                     <img src="https://placehold.co/40x40/fbcfe8/f05252?text=S" alt="Profile" class="w-10 h-10 rounded-full shadow-lg border-2 border-white">
                     <span class="text-2xl font-bold text-gray-800">Echo</span>
@@ -88,80 +88,87 @@
                     </div>
                 </div>
             </div>
+            <!-- Subtitle/status -->
             <div class="mt-2 text-center">
                 <p class="text-sm text-gray-700 font-medium">You're in sync with Echo!</p>
             </div>
         </div>
 
-        <!-- Chat messages -->
+        <!-- Chat messages container -->
         <div class="flex-grow p-4 overflow-y-auto space-y-4">
 
-            <!-- Match's message 1 -->
+            <!-- Match's message 1 (Left-aligned with Echo avatar) -->
             <div class="flex items-start space-x-2">
-                <div class="w-8 h-8 flex-shrink-0 flex items-center justify-center text-xl animate-bounce">✨</div>
+                <!-- Echo Avatar for excited -->
+                <div class="w-8 h-8 flex-shrink-0 flex items-center justify-center text-xl animate-bounce-slow">✨</div>
                 <div class="bg-blue-200 text-gray-800 p-3 rounded-2xl rounded-tl-none shadow-md max-w-[75%]">
                     <p>Hey! I'm so excited about our chat, you seem so cool! 😊</p>
                 </div>
             </div>
 
-            <!-- User's message 1 -->
+            <!-- User's message 1 (Right-aligned) -->
             <div class="flex justify-end">
-                <div class="bg-pastel-lilac text-gray-800 p-3 rounded-2xl rounded-tr-none shadow-md max-w-[75%]">
+                <div class="bg-lilac text-gray-800 p-3 rounded-2xl rounded-tr-none shadow-md max-w-[75%]">
                     <p>Right?! I'm having a great time too. What are you up to?</p>
                 </div>
             </div>
 
             <!-- Match's message 2 - Scroll Hesitation -->
-            <div class="flex items-start space-x-2 transition-all duration-300 transform hover:scale-105 border-4 border-transparent hover:border-pastel-peach rounded-2xl p-2 cursor-pointer shadow-lg">
+            <!-- The 'ring-4 ring-orange-400' class simulates the user pausing over this message. -->
+            <div class="flex items-start space-x-2 transition-all duration-300 transform hover:scale-105 border-4 border-transparent hover:border-peach rounded-2xl p-2 cursor-pointer shadow-lg"
+                 style="margin-left: -8px; margin-right: -8px;">
+                <!-- Echo Avatar for curious -->
                 <div class="w-8 h-8 flex-shrink-0 flex items-center justify-center text-xl">🤔</div>
                 <div class="bg-sky-200 text-gray-800 p-3 rounded-2xl rounded-tl-none max-w-[75%] shadow-md">
-                    <p>Just trying to figure out if I can get my dog to stop chasing the squirrels 😅</p>
+                    <p>Just trying to figure out if I can find a way to get my dog to stop chasing the squirrels in my backyard. 😅</p>
                 </div>
             </div>
 
-            <!-- User's message 2 -->
+            <!-- User's message 2 (Right-aligned) -->
             <div class="flex justify-end">
-                <div class="bg-pastel-lilac text-gray-800 p-3 rounded-2xl rounded-tr-none shadow-md max-w-[75%]">
+                <div class="bg-lilac text-gray-800 p-3 rounded-2xl rounded-tr-none shadow-md max-w-[75%]">
                     <p>Haha, good luck with that! My cat thinks she's a bird.</p>
                 </div>
             </div>
 
-            <!-- Match's message 3 - Callous Detector -->
+            <!-- Match's message 3 - Callous Detector (Subtly faded text) -->
             <div class="flex items-start space-x-2">
+                <!-- Echo Avatar for disengaged -->
                 <div class="w-8 h-8 flex-shrink-0 flex items-center justify-center text-xl">🤷‍♀️</div>
                 <div class="relative bg-gray-200 text-gray-500 p-3 rounded-2xl rounded-tl-none shadow-md max-w-[75%]">
-                    <p class="opacity-60 italic">Ok, cool.</p>
+                    <p class="opacity-60 italic">Ok, cool. </p>
                     <div class="absolute -top-1 -right-1 bg-white p-1 rounded-full shadow-md text-sm">⚠️</div>
                 </div>
             </div>
 
         </div>
 
-        <!-- Input & Typing Indicator -->
+        <!-- Input area at the bottom -->
         <div class="bg-white p-4 rounded-b-3xl shadow-2xl flex flex-col">
-            <!-- Synchronized Typing -->
+            <!-- Synchronized Typing Animation -->
             <div class="flex justify-center items-center py-2">
                 <div class="relative w-8 h-8">
+                    <!-- Outer dot -->
                     <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 dot-pulse animate-pulse"></div>
-                    <div class="absolute w-2 h-2 rounded-full bg-pastel-pink orbiting-dot transform -translate-x-1/2 -translate-y-1/2" style="animation: orbit 1.5s linear infinite;"></div>
+                    <!-- Inner orbiting dot -->
+                    <div class="absolute w-2 h-2 rounded-full bg-pastel-pink transform -translate-x-1/2 -translate-y-1/2" style="animation: orbit 1.5s linear infinite;"></div>
                 </div>
                 <p class="text-sm text-gray-600 ml-2">Echo is typing...</p>
             </div>
-
+            
             <div class="flex items-center space-x-2 bg-gray-100 p-2 rounded-full shadow-inner">
                 <input type="text" placeholder="Send a message…" class="w-full bg-transparent border-none outline-none focus:ring-0 text-gray-700 px-2 py-1 placeholder-gray-400">
-                <button class="bg-pastel-lilac text-white p-2 rounded-full shadow-md hover:bg-violet-400 transition-colors duration-200">
+                <button class="bg-lilac text-white p-2 rounded-full shadow-md hover:bg-violet-400 transition-colors duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l.008.006c.71-.242 1.34-1.041 2.376-2.185a11.968 11.968 0 00.32-1.28c.45-.98.784-1.637 1.09-2.13.238-.383.654-.88.922-1.233a1 1 0 011.39-1.39l.006-.008c.353-.268.85-.684 1.233-.922.493-.306 1.15-.64 2.13-1.09.43-.2.85-.434 1.28-.686a11.968 11.968 0 001.144-.821 1 1 0 00.174-1.428z" />
                     </svg>
-                    <span class="sr-only">Send Message</span>
                 </button>
             </div>
         </div>
     </div>
 
     <script>
-        // Tailwind config for custom colors
+        // Custom color utility for Tailwind
         tailwind.config = {
             theme: {
                 extend: {
